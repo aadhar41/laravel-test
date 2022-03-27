@@ -37,7 +37,9 @@ Route::get('/post/{id}', [PostsController::class, 'index']);
 
 Route::get('/posts', [PostsController::class, 'showAllPosts']);
 
-Route::post('/create-post', [PostsController::class, 'store']);
+Route::get('/create-post', [PostsController::class, 'create'])->middleware('auth');
+
+Route::post('/store-post', [PostsController::class, 'store']);
 
 
 Route::get('/user', function () {
@@ -51,3 +53,7 @@ Route::get('/user', function () {
         throw new UserNotFoundException($th->getMessage(), 1);
     }
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

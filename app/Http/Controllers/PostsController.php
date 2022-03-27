@@ -27,6 +27,12 @@ class PostsController extends Controller
         return view('posts', compact('posts'));
     }
 
+
+    public function create()
+    {
+        return view('create-post');
+    }
+
     public function store(Request $request)
     {
 
@@ -39,5 +45,7 @@ class PostsController extends Controller
             'title' => request()->title,
             'body' => request()->body,
         ]);
+
+        return redirect('/posts');
     }
 }
