@@ -37,7 +37,9 @@ Route::get('/post/{id}', [PostsController::class, 'index']);
 
 Route::get('/posts', [PostsController::class, 'showAllPosts']);
 
-Route::post('/create-post', [PostsController::class, 'store']);
+Route::get('/create-post', [PostsController::class, 'create']);
+
+Route::post('/store-post', [PostsController::class, 'store']);
 
 
 Route::get('/user', function () {

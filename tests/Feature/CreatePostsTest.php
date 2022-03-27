@@ -25,7 +25,7 @@ class CreatePostsTest extends TestCase
     // }
 
     /**
-     * @group create-post
+     * @group store-post
      *
      * @return void
      */
@@ -35,7 +35,7 @@ class CreatePostsTest extends TestCase
 
 
         // 2. Action
-        $response = $this->post('/create-post', [
+        $response = $this->post('/store-post', [
             'title' => 'new post title',
             'body' => 'new post body',
         ]);
@@ -64,7 +64,7 @@ class CreatePostsTest extends TestCase
 
 
         // 2. Action
-        $response = $this->post('/create-post', [
+        $response = $this->post('/store-post', [
             'title' => null,
             'body' => 'new post body',
         ]);
@@ -85,7 +85,7 @@ class CreatePostsTest extends TestCase
 
 
         // 2. Action
-        $response = $this->post('/create-post', [
+        $response = $this->post('/store-post', [
             'title' => 'new post body',
             'body' => null,
         ]);
