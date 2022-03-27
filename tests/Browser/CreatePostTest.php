@@ -14,7 +14,7 @@ class CreatePostTest extends DuskTestCase
     use DatabaseMigrations;
 
     /**
-     * A Dusk test example.
+     * testAuthUserCanCreatePost function
      *
      * @group create-post
      * @return void
@@ -34,6 +34,23 @@ class CreatePostTest extends DuskTestCase
                 ->assertPathIs('/posts')
                 ->assertSee('New Post')
                 ->assertSee('New Body');
+        });
+    }
+
+
+    /**
+     * testOnlyAuthUserCanCreatePost function
+     *
+     * @group create-post-auth
+     * @return void
+     */
+    public function testOnlyAuthUserCanCreatePost()
+    {
+
+        $this->browse(function (Browser $browser) {
+            $browser
+                ->visit('/create-post')
+                ->assertPathIs('/login');
         });
     }
 }
