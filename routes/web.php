@@ -51,3 +51,7 @@ Route::get('/user', function () {
         throw new UserNotFoundException($th->getMessage(), 1);
     }
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
